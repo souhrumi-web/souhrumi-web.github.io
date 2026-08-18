@@ -296,13 +296,14 @@ body.night footer{border-color:var(--night-line);color:var(--night-sub);font-fam
 <section class="night-only reveal" id="build">
   <div class="wrap night-block">
     <div class="sec-head"><span class="label" data-i18n="build.label"></span><h2 data-i18n="build.h2"></h2></div>
+    <p class="muted" data-i18n="build.desc" style="margin-bottom:1.6rem"></p>
     <div class="term">
-      <div class="term-bar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="title">harumi@night — ~/projects</span></div>
-      <div class="term-body"><span class="c">$</span> <span class="g">whoami</span><br>&nbsp;&nbsp;<span class="p">researcher</span> by day · <span class="k">builder</span> by night<br><span class="c">$</span> <span class="g">cat</span> current_project.md<br>&nbsp;&nbsp;<span class="c"># AI project description goes here</span><br>&nbsp;&nbsp;<span class="c"># — to be filled in</span><br><span class="c">$</span> <span class="g">status</span> --now<br>&nbsp;&nbsp;<span class="k">▸</span> shipping ✦ <span class="p">in progress</span></div>
+      <div class="term-bar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="title">harumi@night — ~/roundtable</span></div>
+      <div class="term-body"><span class="c">$</span> <span class="g">whoami</span><br>&nbsp;&nbsp;<span class="p">researcher</span> by day · <span class="k">builder</span> by night<br><span class="c">$</span> <span class="g">cat</span> roundtable/README.md<br>&nbsp;&nbsp;<span class="c"># AI Roundtable — multiple models, one table.</span><br>&nbsp;&nbsp;<span class="c"># persistent seats · cross-review · provenance-first</span><br><span class="c">$</span> <span class="g">status</span> --now<br>&nbsp;&nbsp;<span class="k">▸</span> building the round-2 cross-review slice ✦ <span class="p">beta</span></div>
     </div>
     <div class="proj-grid">
-      <div class="proj-card"><span class="tagn">// project 01</span><h3>[ project name ]</h3><p data-i18n="proj.1"></p><div class="stk"><span>AI</span><span>TBD</span></div></div>
-      <div class="proj-card"><span class="tagn">// project 02</span><h3>[ experiment ]</h3><p data-i18n="proj.2"></p><div class="stk"><span>WIP</span></div></div>
+      <div class="proj-card"><span class="tagn">// project 01</span><h3 data-i18n="proj.1.t"></h3><p data-i18n="proj.1.d"></p><div class="stk"><span>TypeScript</span><span>Node</span><span>Multi-LLM API</span></div></div>
+      <div class="proj-card"><span class="tagn">// project 02</span><h3 data-i18n="proj.2.t"></h3><p data-i18n="proj.2.d"></p><div class="stk"><span>Seat Memory</span><span>Provenance</span></div></div>
     </div>
     <p class="placeholder-note" data-i18n="proj.note"></p>
   </div>
@@ -355,8 +356,10 @@ ja:{
  'j.s2.n':'有珠山・洞爺湖','j.s2.d':'火山と湖の地質観光。「地質を読む観光」のミニレクチャーへ。',
  'j.now.t':'現在','j.now.n':'北海道各地 → 中華圏のSNSへ','j.now.d':'歩いて見た「場」が、言説としてどう流れていくのかを追う。',
  'build.label':'// vibecoding','build.h2':'vibecoding',
- 'proj.1':'いま作っているAIプロダクトの一行説明がここに入ります。何を解決し、誰のためのものか。','proj.2':'研究のかたわらで試している小さなツールやプロトタイプ。決まり次第ここに。',
- 'proj.note':'▸ このセクションは仮組みです。AIプロジェクトの説明（またはファイル）を送ってくれたら、本物の内容に差し替えます。',
+ 'build.desc':'いま作っているのは「AI Roundtable（AI円卓）」。複数の商用AIモデルがそれぞれ「席（Seat）」を持ち、同じ議題を議論し、互いの出力をクロスレビューする協働システムです。各席は独立した長期記憶を持ち（席の同一性はモデルのバージョンより上位）、誰が何を言ったかは常に辿れる。設計思想は「まず透明に」——システムが実際に何をしたのかが、いつでも見えること。<br><br>「意味が人から人へどう受け取られ、伝え直されるか」という研究の関心を、そのまま機械に向けた実験でもあります。',
+ 'proj.1.t':'AI Roundtable','proj.1.d':'複数モデルが一つの卓を囲み、議論しクロスレビューする協働エンジン。',
+ 'proj.2.t':'Seat Memory & Provenance','proj.2.d':'席ごとの永続記憶と、発話者を固定する来歴管理のレイヤー。',
+ 'proj.note':'▸ まだ Beta。透明性を最優先に、少しずつ組み上げています。',
  'contact.label':'連絡先','contact.h2':'連絡先','contact.name.k':'お名前','contact.aff.k':'所属','contact.aff.v':'東洋大学大学院 国際観光学研究科','contact.mail.k':'メール',
  'footer.day':'© 2026 宋 春見 · Sou Harumi — 昼は観光学、夜は vibecoding.','footer.night':'© 2026 SOU HARUMI — day: tourism studies / night: shipping code.'
 },
@@ -389,8 +392,10 @@ en:{
  'j.s2.n':'Mt. Usu · Lake Tōya','j.s2.d':'Geotourism of volcano and lake; toward a mini-lecture, “Tourism that reads the land.”',
  'j.now.t':'ONGOING','j.now.n':'Across Hokkaido → into the Chinese-speaking web','j.now.d':'Tracing how the places I walked flow onward as narrative.',
  'build.label':'// vibecoding','build.h2':'what I’m building',
- 'proj.1':'A one-line description of the AI product I’m building goes here — what it solves, and who it’s for.','proj.2':'Small tools and prototypes I tinker with alongside research. Coming soon.',
- 'proj.note':'▸ This section is a placeholder. Send me the AI project description (or files) and I’ll swap in the real content.',
+ 'build.desc':'I’m building “AI Roundtable” — a multi-model collaboration system where several commercial LLMs each take a persistent “seat,” discuss a shared agenda, and cross-review one another’s output. Every seat keeps its own long-term memory (a seat’s identity outlives any single model version), and every contribution stays traceable to who said it. The guiding principle is transparency-first: you can always see what the system actually did, and why.<br><br>It’s also my research question — how meaning is received and re-transmitted between people — turned toward machines.',
+ 'proj.1.t':'AI Roundtable','proj.1.d':'A collaboration engine where multiple models sit at one table, discuss, and cross-review.',
+ 'proj.2.t':'Seat Memory & Provenance','proj.2.d':'A layer for per-seat persistent memory and speaker-anchored provenance.',
+ 'proj.note':'▸ Still in beta — assembled piece by piece, transparency first.',
  'contact.label':'CONTACT','contact.h2':'Contact','contact.name.k':'Name','contact.aff.k':'Affiliation','contact.aff.v':'Graduate School of International Tourism Management, Toyo University','contact.mail.k':'Email',
  'footer.day':'© 2026 Sou Harumi — day: tourism studies / night: vibecoding.','footer.night':'© 2026 SOU HARUMI — day: tourism studies / night: shipping code.'
 },
@@ -423,8 +428,10 @@ zh:{
  'j.s2.n':'有珠山·洞爷湖','j.s2.d':'火山与湖的地质观光，延伸出"阅读地质的观光"迷你讲座。',
  'j.now.t':'进行中','j.now.n':'北海道各地 → 通向中华圈的社交网络','j.now.d':'追踪走访过的"场"，如何作为言说继续流动。',
  'build.label':'// vibecoding','build.h2':'我在做的东西',
- 'proj.1':'这里放我正在做的 AI 产品的一句话介绍——它解决什么、为谁而做。','proj.2':'研究之余捣鼓的小工具与原型。定了就放这里。',
- 'proj.note':'▸ 这部分是占位。把 AI 项目的介绍（或文件）发我，我就换成真实内容。',
+ 'build.desc':'我在做的是「AI 圆桌（AI Roundtable）」——一个多模型协作系统：多个商用大模型各占一个持久的「席位（Seat）」，围绕同一议题讨论，并交叉评审彼此的输出。每个席位拥有独立的长期记忆（席位身份高于模型版本），每一句发言都可追溯到"谁说的"。设计的第一原则是"先透明"——系统究竟做了什么、为什么，随时都看得见。<br><br>这其实也是把我的研究关心（意义如何在人与人之间被接收、再传递）转向机器的一次实验。',
+ 'proj.1.t':'AI 圆桌','proj.1.d':'多个模型围坐一桌、讨论并交叉评审的协作引擎。',
+ 'proj.2.t':'Seat Memory & Provenance','proj.2.d':'为每个席位提供持久记忆、并锚定发言者来源的底层。',
+ 'proj.note':'▸ 仍是 Beta，以透明优先，一点点搭起来。',
  'contact.label':'联系','contact.h2':'联系方式','contact.name.k':'姓名','contact.aff.k':'所属','contact.aff.v':'东洋大学大学院 国际观光学研究科','contact.mail.k':'邮箱',
  'footer.day':'© 2026 宋 春见 · Sou Harumi — 白天做观光学，夜里写代码。','footer.night':'© 2026 SOU HARUMI — 白天做观光学，夜里写代码。'
 }
