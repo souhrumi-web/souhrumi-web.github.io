@@ -181,8 +181,9 @@ body.opening.go .hportrait,body.opening.go .sweep{animation-play-state:running}
 .trans.show{opacity:1;pointer-events:auto}.trans.out{opacity:0}
 .disc-wrap{display:flex;transform:scale(0);position:relative;z-index:2}
 .disc{width:80px;height:80px;display:block}
-.trans.show .disc-wrap{animation:popspin 1.45s linear forwards}
-@keyframes popspin{0%{transform:scale(0) rotate(0deg)}9%{transform:scale(1.16) rotate(26deg)}15%{transform:scale(1) rotate(38deg)}70%{transform:scale(1) rotate(840deg)}86%{transform:scale(1.05) rotate(918deg)}93%{transform:scale(.99) rotate(892deg)}100%{transform:scale(1) rotate(900deg)}}
+.trans.show .disc-wrap{animation:popspin 1.0s linear forwards}
+/* fewer turns: 0.5 rotation (was 2.5) — same pop-in, same clunk-to-stop, same final orientation (180°) */
+@keyframes popspin{0%{transform:scale(0) rotate(0deg)}12%{transform:scale(1.16) rotate(10deg)}20%{transform:scale(1) rotate(18deg)}68%{transform:scale(1) rotate(150deg)}84%{transform:scale(1.05) rotate(196deg)}92%{transform:scale(.99) rotate(174deg)}100%{transform:scale(1) rotate(180deg)}}
 .solid{position:absolute;width:80px;height:80px;border-radius:50%;transform:scale(0);background:#F7FAFD;z-index:3;transition:transform .5s cubic-bezier(.5,0,.3,1)}
 .trans.night .solid{background:#0A0E1A}
 .trans.commit .solid{transform:scale(1)}
@@ -342,15 +343,15 @@ function enter(side){
   sw.classList.add('loading', isN?'load-night':'load-day');
   trans.className='trans '+(isN?'night':'day');
   var target=SITE+'?lang='+curLang+(isN?'&p=night':'');
-  setTimeout(function(){trans.classList.add('show');},1250);      // popspin 1.45s
-  setTimeout(function(){trans.classList.add('commit');},2760);    // dial locks -> solid circle
-  setTimeout(function(){trans.classList.add('blow');},3060);      // circle floods the screen
+  setTimeout(function(){trans.classList.add('show');},1250);      // popspin 1.0s
+  setTimeout(function(){trans.classList.add('commit');},2300);    // dial locks -> solid circle
+  setTimeout(function(){trans.classList.add('blow');},2600);      // circle floods the screen
   setTimeout(function(){
     if(window.__PREVIEW){trans.classList.add('out');setTimeout(function(){
       trans.className='trans'; sw.classList.remove('loading','load-day','load-night'); setMood('none');
     },600);}
     else{location.href=target;}
-  },3560);
+  },3100);
 }
 
 setLang('ja');
