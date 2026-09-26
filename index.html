@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Preview E — 首屏 HERO · 07 融入字标</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Rozha+One&family=M+PLUS+1+Code:wght@400;500;700&family=DotGothic16&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Rozha+One&family=M+PLUS+1+Code:wght@400;500;700&family=DotGothic16&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap');
 :root{--ink:#1A1F3A;--bg:#FBFCFE;--navy:#17194C;--blue:#2E3A82;--gray:#5A6079;--line:#D2D5E4;--nav-h:76px}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -220,6 +220,12 @@ body.mood-night .navmid a:not(.star)::after{background:#aebbf0}
 /* v2b: vintage-newspaper initial on the bio */
 .bio .dc{display:inline-block;font-family:'Rozha One','Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',Georgia,serif;font-weight:700;font-size:2.4em;line-height:.8;vertical-align:-.16em;margin-right:.05em;color:var(--navy);transition:color .8s ease}
 body.mood-night .bio .dc{color:#c3cbe8}
+
+/* v2c: name kicker + positioning lede above the bio */
+.bio .who{font-family:'Courier Prime',monospace;font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gray);margin-bottom:10px;transition:color .8s ease}
+.bio .lede{font-family:'Noto Serif JP','Noto Serif SC',serif;font-weight:500;font-size:clamp(16px,2.1vw,18.5px);line-height:1.9;color:var(--navy);margin-bottom:22px;position:relative;padding-top:12px;transition:color .8s ease}
+.bio .lede::before{content:"";position:absolute;left:0;top:0;width:28px;height:1.5px;background:var(--blue)}
+body.mood-night .bio .who{color:#8b93b6}body.mood-night .bio .lede{color:#dde3f2}body.mood-night .bio .lede::before{background:#aebbf0}
 </style>
 </head>
 <body class="ld opening">
@@ -259,6 +265,8 @@ body.mood-night .bio .dc{color:#c3cbe8}
   <section class="block" id="about">
     <div class="sechead"><span class="ln l"></span><span class="t">ABOUT ME</span><span class="ln r"></span></div>
     <div class="bio">
+      <div class="who">宋 春見 · SOU HARUMI</div>
+      <p class="lede" data-i="lede"></p>
       <p data-i="bio1">宋 春見（ソウ・ハルミ）は、国際観光学の大学院生であり、AI プロダクトのつくり手。昼はアイヌ文化観光が中華圏の旅行者にどう受け取られ、語り直されるかを研究し、夜は AI Roundtable を設計してつくる。</p>
       <p data-i="bio2">放送・番組制作の出身。理解する → 企画する → つくる → 直す——同じループをずっと。東京より。見にきてくれてありがとう。</p>
       <p class="sig" data-i="sig">東洋大学大学院 国際観光学 · JLPT N1 · 全国「インターネット＋」銀賞</p>
@@ -308,6 +316,7 @@ body.mood-night .bio .dc{color:#c3cbe8}
 var SITE='site.html';var SITE_V='2';
 var T={
  ja:{nRes:'Research',nBuild:'Build',nWork:'Work',nContact:'★ お問い合わせ ★',eyebrow:'国際観光学 × AI ・ 東京',scroll:'Scroll',
+  lede:'情報が、どう見られ、どう理解され、どう言い直されるのか。文化観光の研究と、AI協働の実践、その両方で追っています。',
   bio1:'<span class="dc">今</span>、東洋大学大学院 国際観光学研究科の修士課程にいます。研究テーマは、アイヌ文化観光が中華圏の旅行者にどう受け取られ、どう語り直されるか。夜は AI Roundtable というツールを作っています。',
   bio2:'学部では放送・広告・テレビ番組の制作を学び、母国でコンテスト・インターンシップ経験あり。東京在住。',
   sig:'東洋大学大学院 国際観光学 · JLPT N1 · 全国「インターネット＋」銀賞',
@@ -316,6 +325,7 @@ var T={
   chooserHint:'昼か夜、えらんで入る →',enterDay:'昼へ…',enterNight:'夜へ…',
   workH:'— Selected Work —',t1:'AI Roundtable',t2:'ポスター / 展示会資料',t3:'互联网+ 銀賞',t4:'Ainu Research',cLabel:'— Contact · 連絡先 —',cv:'履歴書 / CV (PDF) →'},
  en:{nRes:'Research',nBuild:'Build',nWork:'Work',nContact:'★ CONTACT ★',eyebrow:'Tourism × AI · Tokyo',scroll:'Scroll',
+  lede:'Tracing how information becomes meaning—and how different judgments remain visible.',
   bio1:'<span class="dc">N</span>ow in the master’s program at the Graduate School of International Tourism Management, Toyo University. My research asks how Ainu cultural tourism is received and retold by Chinese-speaking travelers. At night I build a tool called AI Roundtable.',
   bio2:'As an undergraduate I studied broadcasting, advertising and TV production, with contest and internship experience back home. Based in Tokyo.',
   sig:'MA, International Tourism (Toyo Univ.) · JLPT N1 · National "Internet+" Silver Award',
@@ -324,6 +334,7 @@ var T={
   chooserHint:'pick a side, step in →',enterDay:'to day…',enterNight:'to night…',
   workH:'— Selected Work —',t1:'AI Roundtable',t2:'Posters / exhibition materials',t3:'Internet+ Silver',t4:'Ainu Research',cLabel:'— Contact —',cv:'Résumé / CV (PDF) →'},
  zh:{nRes:'研究',nBuild:'构建',nWork:'作品',nContact:'★ 联系我 ★',eyebrow:'国际观光学 × AI ・ 东京',scroll:'向下',
+  lede:'在文化与智能协作之间，关注信息如何被看见、理解与重新表达。',
   bio1:'<span class="dc">现</span>在，我在东洋大学大学院 国际观光学研究科读硕士。研究主题是：阿伊努文化观光如何被中华圈旅行者接收、又如何被重新讲述。夜里在做一个叫 AI Roundtable 的工具。',
   bio2:'本科学的是广播、广告与电视节目制作，在国内有竞赛和实习经历。现居东京。',
   sig:'东洋大学大学院 国际观光学 · JLPT N1 · 全国「互联网＋」银奖',

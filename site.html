@@ -361,6 +361,17 @@ body.night .dc{color:#E6EBF8}
 .hero .tag .lead{display:block;margin-bottom:.5em;font-weight:700}
 .hero h1 .snow{display:inline-block;margin:0 .16em;font-size:.68em;vertical-align:.1em;color:var(--day-blue)}
 .hero .h1shadow{display:block;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:clamp(1.05rem,3.2vw,1.65rem);letter-spacing:.06em;line-height:1.2;opacity:.26;margin-top:.12em;filter:blur(.2px)}
+
+/* v4: conservative research/AI copy blocks */
+.rz-ptitle{font-family:'Noto Serif JP','Noto Serif SC',serif;font-weight:700;font-size:clamp(19px,2.4vw,25px);line-height:1.45;color:#143E68;margin-top:8px}
+.rz-psub{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.08em;color:#586878;margin-top:6px}
+.rz-status{display:inline-block;margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#1E5F9E;border:1px solid #1E5F9E;padding:3px 9px}
+.rz-coreq{font-size:clamp(16px,1.9vw,19px);font-weight:500;margin-top:14px}
+.rz-stat{font-family:'Noto Sans JP','Noto Sans SC',sans-serif;font-size:13px;color:#586878;margin-top:10px}
+.pj-head{margin:0 0 1.1rem}
+.pj-title{font-family:'Noto Sans JP','Noto Sans SC',sans-serif;font-weight:700;font-size:clamp(1.15rem,2.4vw,1.5rem);color:#E6EBF8;line-height:1.4}
+.pj-sub{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.08em;color:var(--night-sub);margin-top:.35rem}
+.pj-status{display:inline-block;margin-top:.6rem;font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--night-cyan);border:1px solid var(--night-cyan);border-radius:4px;padding:.18rem .55rem}
 </style>
 </head>
 <body>
@@ -488,6 +499,7 @@ if(p.get('p')==='night'||h==='build'||h==='night'){document.body.classList.add('
 <section class="night-only reveal" id="build">
   <div class="wrap night-block">
     <div class="sec-head"><span class="label" data-i18n="build.label"></span><h2 data-i18n="build.h2"></h2></div>
+    <div class="pj-head"><div class="pj-title" data-i18n="build.title"></div><div class="pj-sub">AI Roundtable × Human-led Collaboration</div><span class="pj-status" data-i18n="build.status"></span></div>
     <div class="highlights">
       <div class="hl"><div class="hn">01</div><div><h4 data-i18n="hi.a.t"></h4><p data-i18n="hi.a.d"></p></div></div>
       <div class="hl"><div class="hn">02</div><div><h4 data-i18n="hi.b.t"></h4><p data-i18n="hi.b.d"></p></div></div>
@@ -496,7 +508,7 @@ if(p.get('p')==='night'||h==='build'||h==='night'){document.body.classList.add('
     <p class="muted" data-i18n="build.desc" style="margin-bottom:1.6rem"></p>
     <div class="term">
       <div class="term-bar"><span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="title">harumi@night — ~/roundtable</span></div>
-      <div class="term-body"><span class="c">$</span> <span class="g">whoami</span><br>&nbsp;&nbsp;<span class="p">researcher</span> by day · <span class="k">builder</span> by night<br><span class="c">$</span> <span class="g">cat</span> roundtable/README.md<br>&nbsp;&nbsp;<span class="c"># AI Roundtable — multiple models, one table.</span><br>&nbsp;&nbsp;<span class="c"># persistent seats · cross-review · provenance-first</span><br><span class="c">$</span> <span class="g">seats</span> --list<br>&nbsp;&nbsp;<span class="p">GPT</span> · <span class="p">Claude</span> · <span class="p">Gemini</span> · <span class="p">DeepSeek</span>&nbsp;&nbsp;<span class="c"># each a persistent seat</span><br><span class="c">$</span> <span class="g">status</span> --now<br>&nbsp;&nbsp;<span class="k">▸</span> multi-agent fan-out: <span class="g">working</span><br>&nbsp;&nbsp;<span class="k">▸</span> owner-gate audit: in progress&nbsp;&nbsp;✦ <span class="p">beta</span></div>
+      <div class="term-body"><span class="c">$</span> <span class="g">whoami</span><br>&nbsp;&nbsp;<span class="p">researcher</span> by day · <span class="k">builder</span> by night<br><span class="c">$</span> <span class="g">cat</span> roundtable/README.md<br>&nbsp;&nbsp;<span class="c"># AI Roundtable — several AIs, one agenda.</span><br>&nbsp;&nbsp;<span class="c"># independent judgments first, then mutual review</span><br>&nbsp;&nbsp;<span class="c"># the human sets the agenda, the limits, and the final call</span><br><span class="c">$</span> <span class="g">status</span> --now<br>&nbsp;&nbsp;<span class="k">▸</span> in development &amp; validation<br>&nbsp;&nbsp;<span class="k">▸</span> directions and principles only; no finished product here</div>
     </div>
     <figure class="rt-diagram">
       <svg viewBox="0 0 820 460" xmlns="http://www.w3.org/2000/svg" aria-label="roundtable diagram">
@@ -508,23 +520,24 @@ if(p.get('p')==='night'||h==='build'||h==='night'){document.body.classList.add('
         </g>
         <ellipse cx="410" cy="230" rx="122" ry="55" fill="#31E0C8" fill-opacity=".05" stroke="#31E0C8" stroke-width="1.6"/>
         <text x="410" y="226" text-anchor="middle" fill="#31E0C8" font-family="'JetBrains Mono',monospace" font-size="19" font-weight="700" letter-spacing="1">AI ROUNDTABLE</text>
-        <text x="410" y="248" text-anchor="middle" fill="#8492AD" font-family="'JetBrains Mono',monospace" font-size="12">cross-review · provenance</text>
+        <text x="410" y="248" text-anchor="middle" fill="#8492AD" font-family="'JetBrains Mono',monospace" font-size="12">independent judgments · mutual review</text>
         <g font-family="'JetBrains Mono',monospace">
-          <g><circle cx="410" cy="80" r="27" fill="#161F33" stroke="#A784FF" stroke-width="1.8"/><text x="410" y="85" text-anchor="middle" fill="#A784FF" font-size="15" font-weight="700">S1</text><text x="410" y="34" text-anchor="middle" fill="#8492AD" font-size="10">▤ memory</text></g>
-          <g><circle cx="681" cy="184" r="27" fill="#161F33" stroke="#A784FF" stroke-width="1.8"/><text x="681" y="189" text-anchor="middle" fill="#A784FF" font-size="15" font-weight="700">S2</text><text x="681" y="138" text-anchor="middle" fill="#8492AD" font-size="10">▤ memory</text></g>
-          <g><circle cx="578" cy="351" r="27" fill="#161F33" stroke="#A784FF" stroke-width="1.8"/><text x="578" y="356" text-anchor="middle" fill="#A784FF" font-size="15" font-weight="700">S3</text><text x="578" y="401" text-anchor="middle" fill="#8492AD" font-size="10">▤ memory</text></g>
-          <g><circle cx="242" cy="351" r="27" fill="#161F33" stroke="#A784FF" stroke-width="1.8"/><text x="242" y="356" text-anchor="middle" fill="#A784FF" font-size="15" font-weight="700">S4</text><text x="242" y="401" text-anchor="middle" fill="#8492AD" font-size="10">▤ memory</text></g>
-          <g><circle cx="139" cy="184" r="27" fill="#161F33" stroke="#A784FF" stroke-width="1.8"/><text x="139" y="189" text-anchor="middle" fill="#A784FF" font-size="15" font-weight="700">S5</text><text x="139" y="138" text-anchor="middle" fill="#8492AD" font-size="10">▤ memory</text></g>
+          <g><circle cx="410" cy="80" r="27" fill="#161F33" stroke="#A784FF" stroke-width="1.8"/><text x="410" y="85" text-anchor="middle" fill="#A784FF" font-size="15" font-weight="700">S1</text></g>
+          <g><circle cx="681" cy="184" r="27" fill="#161F33" stroke="#A784FF" stroke-width="1.8"/><text x="681" y="189" text-anchor="middle" fill="#A784FF" font-size="15" font-weight="700">S2</text></g>
+          <g><circle cx="578" cy="351" r="27" fill="#161F33" stroke="#A784FF" stroke-width="1.8"/><text x="578" y="356" text-anchor="middle" fill="#A784FF" font-size="15" font-weight="700">S3</text></g>
+          <g><circle cx="242" cy="351" r="27" fill="#161F33" stroke="#A784FF" stroke-width="1.8"/><text x="242" y="356" text-anchor="middle" fill="#A784FF" font-size="15" font-weight="700">S4</text></g>
+          <g><circle cx="139" cy="184" r="27" fill="#161F33" stroke="#A784FF" stroke-width="1.8"/><text x="139" y="189" text-anchor="middle" fill="#A784FF" font-size="15" font-weight="700">S5</text></g>
         </g>
+      <g font-family="'JetBrains Mono',monospace"><line x1="410" y1="381" x2="410" y2="392" stroke="#31E0C8" stroke-opacity=".55" stroke-width="1.2" stroke-dasharray="3 3"/><circle cx="410" cy="414" r="21" fill="#161F33" stroke="#31E0C8" stroke-width="1.8"/><text x="410" y="419" text-anchor="middle" fill="#31E0C8" font-size="14" font-weight="700">H</text><text x="410" y="452" text-anchor="middle" fill="#8492AD" font-size="10">human · agenda / limits / final call</text></g>
       </svg>
       <figcaption data-i18n="build.diagcap"></figcaption>
     </figure>
-    <div class="ncallout"><h4 data-i18n="night.mem.t"></h4><p data-i18n="night.mem.d"></p></div>
-    <div class="ncallout pos"><h4 data-i18n="night.pos.t"></h4><p data-i18n="night.pos.d"></p><span class="stamp" data-i18n="night.pos.stamp"></span></div>
+    
+    <div class="ncallout pos"><h4 data-i18n="night.pri.t"></h4><p data-i18n="night.pri.d"></p></div>
     <p class="nnote" data-i18n="night.adhd"></p>
     <div class="proj-grid">
-      <div class="proj-card"><span class="tagn">// project 01</span><h3 data-i18n="proj.1.t"></h3><p data-i18n="proj.1.d"></p><div class="stk"><span>TypeScript</span><span>Node</span><span>Multi-LLM API</span></div></div>
-      <div class="proj-card"><span class="tagn">// project 02</span><h3 data-i18n="proj.2.t"></h3><p data-i18n="proj.2.d"></p><div class="stk"><span>Seat Memory</span><span>Provenance</span></div></div>
+      <div class="proj-card"><span class="tagn">// project 01</span><h3 data-i18n="proj.1.t"></h3><p data-i18n="proj.1.d"></p><div class="stk"><span data-i18n="proj.st"></span></div></div>
+      <div class="proj-card"><span class="tagn">// project 02</span><h3 data-i18n="proj.2.t"></h3><p data-i18n="proj.2.d"></p><div class="stk"><span>human-led</span><span>traceable</span></div></div>
     </div>
     <p class="placeholder-note" data-i18n="proj.note"></p>
   </div>
@@ -590,7 +603,7 @@ if(p.get('p')==='night'||h==='build'||h==='night'){document.body.classList.add('
 
 <script>
 const T={
-ja:{"rz.enter":"ひらく →","rz.core.lab":"研究の芯 · CORE","rz.fw.h":"現地調査 — 北海道","rz.view":"見る","rz.flow":"▶ 流す","rz.reading":"参考文献の一部","rz.q1.k":"01 — 問い","rz.q1.t":"観光客の媒介作用","rz.q1.b":"中華圏の観光客はアイヌ文化を「<b>何として</b>受け取り」、自分たちの言語圏へ「<b>どう伝えている</b>」のか。この受け取りと運び直しを〈<b>観光客の媒介作用</b>〉と呼ぶ。","rz.q2.k":"02 — 対象・フィールド","rz.q2.t":"ウポポイと、中国語UGC","rz.q2.b":"2020年開設の国立施設〈<b>ウポポイ</b>〉を起点に、白老・阿寒湖などのフィールドと、<b>中国語UGC</b>（小紅書などのSNS・口コミ）を対象とする。","rz.q3.k":"03 — 方法","rz.q3.t":"記述に徹する","rz.q3.b":"中国語UGCの分析と現地の<b>参与観察</b>。真正性の真偽や理解の深浅を裁定せず、「<b>誰が・何を・どう語り、運ぶのか</b>」の記述に徹する。","rz.q4.k":"04 — 立場","rz.q4.t":"受け手の側から","rz.q4.b":"送り手ではなく<b>受け手（中華圏）の側</b>に立ち、経験がどう受け取られ、口コミ・SNSとして<b>再発信</b>されていくのかを追う。",
+ja:{"rz.enter":"ひらく →","rz.core.lab":"研究の芯 · CORE","rz.fw.h":"現地調査 — 北海道","rz.view":"見る","rz.flow":"▶ 流す","rz.reading":"参考文献の一部","rz.q1.k":"01 — 問い","rz.q1.t":"言語を越えたあとで、何が起きるか","rz.q1.b":"アイヌ文化観光に関する情報が簡体字中国語のネット環境に入ったとき、受け手はそれにどう触れ、どう理解し、どう組み替えて、もう一度どう表現するのか。","rz.q2.k":"02 — 受け手","rz.q2.t":"受け手は、終点ではない","rz.q2.b":"ネット上の受け手を、情報が届いて終わる場所とは考えない。人は手持ちの知識や旅行の経験、ポップカルチャーといった意味の資源を使って、文化に関する情報を選び、解釈し、言い直している。","rz.q3.k":"03 — プラットフォーム","rz.q3.t":"まず、何が見えるか","rz.q3.b":"デジタル・プラットフォームは、人がまず何を目にするかを左右する。言語をまたぐと文脈が変わり、見えるものも変わる。その可視性のしくみも、研究の視野に入れている。","rz.q4.k":"04 — 責任","rz.q4.t":"証拠と解釈を分ける","rz.q4.b":"文化の真正性の真偽や、理解の深浅を裁定しない。誰が、何を、どう語ったかを記述し、証拠と解釈を分けて示す。それが研究者の側の責任だと考えている。",
  'brand':'宋 春見<small>SOU HARUMI</small>',
  'toggle.day':'☀︎ 昼','toggle.night':'🌙 夜',
  'hero.day.kicker':'国際観光学 · 修士課程',
@@ -602,8 +615,7 @@ ja:{"rz.enter":"ひらく →","rz.core.lab":"研究の芯 · CORE","rz.fw.h":"�
  'hero.night.tag':'研究のかたわら、AIと一緒に様々なツールを作っています。いちばん面白いのが AI Roundtable です。',
  'hint.night':'昼のページへ ↗',
  'research.label':'研究について','research.h2':'研究について',
- 'research.lead':'東洋大学大学院 国際観光学研究科 修士課程1年。専門は、アイヌ文化観光における<b>中華圏観光客の受容と再発信</b>です。',
- 'research.body':'2020年に開設された国立施設ウポポイなどを通じて、アイヌ文化は国内外へ発信されています。ただ、海外の観光客がそれを「何として受け取り」、自分たちの言語圏へ「どう伝えているのか」は、実証的にはほとんど検討されていません。本研究は、中華圏の観光客・受容者が経験をどのように受け取り、口コミやSNS（小紅書など）での発信として再伝達しているのか――これを「観光客の媒介作用」と呼びます――を、中国語UGCの分析によって記述します。文化の真正性の真偽や、理解の深浅を裁定するのではなく、「誰が・何を・どう語り、運ぶのか」の記述に徹します。',
+ 'research.lead':'アイヌ文化観光をめぐる簡体字中国語のネット上のコンテンツを手がかりに、文化に関する情報が、言語をまたぐデジタル・プラットフォームのなかでどう出会われ、理解され、組み替えられ、もう一度表現されるのかを見ています。','proj.st':'開発・検証中','night.pri.d':'人が最終的に判断する。出どころを辿れるようにする。まだ終わっていないものを、成果として書かない。','night.pri.t':'協働の原則','build.status':'開発・検証中 · In Development','build.title':'違いを残す、複数AIの協働実験','rz.stat':'いまは方法の調整と資料の読み込みの段階で、結論はまだ出していません。','rz.status':'研究進行中 · Ongoing Research','rz.ptitle':'言語をまたぐプラットフォームにおける、文化の理解と再表現',
  'research.kwlabel':'キーワード：','research.imgcap':'北海道遺産・アイヌ関連の参考文献',
  'field.label':'フィールドから','field.h2':'フィールドから',
  'field.intro':'2026年7月、ウポポイ（民族共生象徴空間）で参与観察をしました。展示・解説の方針と来場者の反応をフィールドノーツに記録し、あわせて白老・函館なども歩いています。',
@@ -626,29 +638,27 @@ ja:{"rz.enter":"ひらく →","rz.core.lab":"研究の芯 · CORE","rz.fw.h":"�
  'j.t7.n':'白老・函館','j.t7.d':'',
  'j.now.t':'現在','j.now.n':'中華圏のSNSへ','j.now.d':'歩いた所見が、異なる文化でどのように流れていく',
  'build.label':'// vibecoding','build.h2':'vibecoding',
- 'hi.a.t':'AIを、道具ではなく“記憶をもつ参加者”として','hi.a.d':'各モデルに持続する席・記憶・来歴を与える。誰が何を言ったかを残し、AIを使い捨てにしない——記憶アーキテクチャと倫理をめぐる設計。',
- 'hi.b.t':'一つの円卓で、雑談から学術まで','hi.b.d':'場面に応じて議論のモードを切り替えられる、適応する円卓。',
- 'hi.c.t':'エンジニア向けの“エージェント”を、人文の議論へ','hi.c.d':'エージェント技術の多くは開発向け。その発想を人文・質的な対話の側へ向け直してみる試み。',
- 'build.desc':'いま作っているのは「AI Roundtable（AI円卓）」。複数の商用AIモデルがそれぞれ「席（Seat）」を持ち、同じ議題を議論し、互いの出力をクロスレビューする協働システムです。各席は独立した長期記憶を持ち（席の同一性はモデルのバージョンより上位）、誰が何を言ったかは常に辿れる。設計思想は「まず透明に」——システムが実際に何をしたのかが、いつでも見えること。<br><br>「意味が人から人へどう受け取られ、伝え直されるか」という研究の関心を、そのまま機械に向けた実験でもあります。',
- 'proj.1.t':'AI Roundtable','proj.1.d':'複数モデルが一つの卓を囲み、議論しクロスレビューする協働エンジン。',
- 'proj.2.t':'Seat Memory & Provenance','proj.2.d':'席ごとの永続記憶と、発話者を固定する来歴管理のレイヤー。',
- 'proj.note':'▸ まだ Beta。透明性を最優先に、少しずつ組み上げています。',
- 'research.imgcap2':'白老・函館などで集めたフィールド資料','works.deckcap':'第2回 研究進捗発表スライド（全36ページ）','build.diagcap':'概念図：席が卓を囲み、記憶をもって互いをレビューする','works.tecap':'TAとして担当したミニレクチャーの現場',
- 'contact.label':'連絡先','contact.h2':'連絡先','contact.name.k':'お名前','contact.aff.k':'所属','contact.aff.v':'東洋大学大学院 国際観光学研究科','contact.mail.k':'メール','contact.wx.k':'WeChat','contact.wx.btn':'微信QRを表示',
- 'night.mem.t':'記憶のアーキテクチャ — 設計のコア','night.mem.d':'この項目のコアは記憶の設計にある。各席の個人記憶（Seat Memory）と会議の記録（Round History）を分けて保存し、会議で出たことは受制御の promotion を経てはじめて長期記憶になる。席の同一性はモデルのバージョンより上位——エンジンを替えても席は替わらない。そして「自分の脳を持って会議に入る」ことは、「他の席の私的記憶を読める」ことを意味しない。',
- 'night.pos.t':'立ち位置 — なぜ大手が動いても、個人で作るのか','night.pos.d':'多エージェント協働は、2026年時点で大手ラボも進めている方向だ。それでも個人で作り続ける理由は、この設計で自分が完全に手元に置けるもの——記憶アーキテクチャ、透明性、「どのAIが何を言ったか」の来歴——にある。規模で競うのではなく、制御・透明性・人文的な目的に賭けている。副産物として、席ごとにモデルの「性格」の違いを直接観察でき、ある挙動が規則ではなく学習データの側に根ざしていると分かる瞬間もある。','night.pos.stamp':'— 立ち位置メモ, 2026','night.adhd':'散らばって、飛んで、ふいに深く潜る。いまの時代の、そういう頭の使い方に合わせた設計でもあります。',
+ 'hi.a.t':'まず、それぞれが判断する','hi.a.d':'複数のAIに、いきなり一つの答えを出させない。先にそれぞれが相対的に独立した判断を持ち、そのうえで互いの意見を読み、疑い、直す。',
+ 'hi.b.t':'違いを、消さずに残す','hi.b.d':'誰が言ったか、どこで意見が分かれたか、どう修正されたか。その過程を圧縮せずに残す。',
+ 'hi.c.t':'決めるのは、人','hi.c.d':'議題を出す。境界を決める。行動の権限を与える。最後に判断する。この四つは人間の仕事として残す。',
+ 'build.desc':'いま作っているのは「AI Roundtable（AI円卓）」。複数のAIが同じ議題を、それぞれの判断を保ったまま検討し、互いにレビューし合うための協働の実験です。目指しているのは、早く一つの答えにまとめることより、意見の違いと、その出どころと、直した過程が見えたまま残ること。開発と検証の途中です。',
+ 'proj.1.t':'AI Roundtable','proj.1.d':'複数のAIが一つの卓を囲み、それぞれの判断を保ったまま互いにレビューし合う協働の実験。',
+ 'proj.2.t':'Human-led Collaboration','proj.2.d':'議題・境界・行動の権限・最終判断を人の側に置くための、協働の型。',
+ 'proj.note':'▸ 開発・検証中。ここに書いているのは、方向と原則まで。',
+ 'research.imgcap2':'白老・函館などで集めたフィールド資料','works.deckcap':'第2回 研究進捗発表スライド（全36ページ）','build.diagcap':'概念図：複数のAIが、それぞれの判断を持って卓を囲み、互いにレビューする。議題と最終判断は人の側にある。','works.tecap':'TAとして担当したミニレクチャーの現場',
+ 'contact.label':'連絡先','contact.h2':'連絡先','contact.name.k':'お名前','contact.aff.k':'所属','contact.aff.v':'東洋大学大学院 国際観光学研究科','contact.mail.k':'メール','contact.wx.k':'WeChat','contact.wx.btn':'微信QRを表示','night.adhd':'散らばって、飛んで、ふいに深く潜る。いまの時代の、そういう頭の使い方に合わせた設計でもあります。',
  'footer.day':'© 2026 宋 春見 · Sou Harumi — 昼は観光学、夜は vibecoding.','footer.night':'© 2026 SOU HARUMI — day: tourism studies / night: vibecoding.',
- 'spine.h2':'昼と夜に共通すること',
- 'spine.line.day':'誰が語ったか <span class="neq">≠</span> それが真実か',
- 'spine.line.night':'誰が言ったか <span class="neq">≠</span> それが証拠か',
- 'spine.col.t':'観光 — 受容と再発信','spine.col.n':'円卓 — 席と部屋',
- 'spine.r1.ax':'誰が語るか ≠ 真','spine.r1.t':'誰が<b>アイヌ文化</b>を語るか ≠ それが真実','spine.r1.n':'どの<b>席</b>が言うか ≠ それが証拠',
- 'spine.r2.ax':'反復 ≠ 真','spine.r2.t':'拡散され、何度も語られても ≠ 真実','spine.r2.n':'何度 recall されても ≠ 真',
- 'spine.r3.ax':'場が語り方を決める','spine.r3.t':'同じ文化も、<b>場</b>によって語られ方が変わる','spine.r3.n':'同じ席も、<b>部屋</b>によって振る舞いが変わる',
- 'spine.r4.ax':'沈黙も語り','spine.r4.t':'語られないこと・沈黙も、ひとつの語り','spine.r4.n':'席は「語らない」を選べる',
- 'spine.sub':'研究でも開発でも、気にしているのは同じことです。'
+ 'spine.h2':'二つの対象、二つの実践、一本の問い',
+ 'spine.line.day':'可視性 → 理解 → 媒介 → 再表現 → 責任',
+ 'spine.line.night':'可視性 → 理解 → 媒介 → 再表現 → 責任',
+ 'spine.col.t':'研究 — 文化の情報','spine.col.n':'円卓 — 判断と協働',
+ 'spine.r1.ax':'可視性','spine.r1.t':'まず何が目に入るかは、プラットフォームが左右する。','spine.r1.n':'まずどの判断が出てくるかは、設定と順番が左右する。',
+ 'spine.r2.ax':'理解・媒介','spine.r2.t':'受け手は、手持ちの意味の資源で読み替える。','spine.r2.n':'各AIは独立に判断し、そのうえで互いを読む。',
+ 'spine.r3.ax':'再表現','spine.r3.t':'言い直された情報は、元の文脈を落とすことがある。','spine.r3.n':'早く一つにまとめると、違いが消える。',
+ 'spine.r4.ax':'責任','spine.r4.t':'証拠と解釈を分けて示すのは、研究者。','spine.r4.n':'議題と最終判断を持つのは、人。',
+ 'spine.sub':'研究と円卓は別の仕事。ぶつかる問いは、いつも同じ。'
 },
-en:{"rz.enter":"Open →","rz.core.lab":"CORE","rz.fw.h":"Fieldwork — Hokkaido","rz.view":"View","rz.flow":"▶ Flow","rz.reading":"Selected readings","rz.q1.k":"01 — Question","rz.q1.t":"The tourist as mediator","rz.q1.b":"How do Chinese-speaking tourists receive Ainu culture — <b>as what</b> — and how do they carry it back into their own linguistic sphere? This reception and re-transmission is what I call the <b>tourist as mediator</b>.","rz.q2.k":"02 — Field & sources","rz.q2.t":"Upopoy & Chinese-language UGC","rz.q2.b":"Starting from <b>Upopoy</b> (the national facility opened in 2020), the work spans fields such as Shiraoi and Lake Akan, and <b>Chinese-language UGC</b> (word-of-mouth and social media such as RED / Xiaohongshu).","rz.q3.k":"03 — Method","rz.q3.t":"Staying with description","rz.q3.b":"Analysis of Chinese-language UGC with on-site <b>participant observation</b>. Rather than judging authenticity or depth of understanding, it stays with description: <b>who says what, how, and carries it where</b>.","rz.q4.k":"04 — Stance","rz.q4.t":"From the receiver’s side","rz.q4.b":"I stand on the side of the <b>receiver (the Chinese-speaking audience)</b>, following how the experience is received and <b>re-transmitted</b> as word-of-mouth and posts.",
+en:{"rz.enter":"Open →","rz.core.lab":"CORE","rz.fw.h":"Fieldwork — Hokkaido","rz.view":"View","rz.flow":"▶ Flow","rz.reading":"Selected readings","rz.q1.k":"01 — Question","rz.q1.t":"What happens after the language line","rz.q1.b":"When information about Ainu cultural tourism enters the simplified-Chinese web, how do people encounter it, understand it, rearrange it and express it again?","rz.q2.k":"02 — Audience","rz.q2.t":"The audience is not an endpoint","rz.q2.b":"I don’t treat online audiences as the place where information stops. People draw on what they already know, on travel experience and on popular culture to select, interpret and restate cultural information.","rz.q3.k":"03 — Platform","rz.q3.t":"What gets seen first","rz.q3.b":"Digital platforms shape what people see first. Crossing a language changes the context, and with it what becomes visible. That mechanism of visibility is part of the study.","rz.q4.k":"04 — Responsibility","rz.q4.t":"Keeping evidence and interpretation apart","rz.q4.b":"I don’t rule on whether a culture is represented authentically or how deeply it is understood. I describe who said what and how, and keep evidence separate from interpretation. That, I think, is the researcher’s responsibility.",
  'brand':'Sou Harumi<small>SOU HARUMI</small>',
  'toggle.day':'☀︎ Day','toggle.night':'🌙 Night',
  'hero.day.kicker':'Tourism Studies · Master’s',
@@ -660,8 +670,7 @@ en:{"rz.enter":"Open →","rz.core.lab":"CORE","rz.fw.h":"Fieldwork — Hokkaido
  'hero.night.tag':'Alongside research, I build all kinds of small tools with AI. The most interesting one is AI Roundtable.',
  'hint.night':'To the day page ↗',
  'research.label':'RESEARCH','research.h2':'What I study',
- 'research.lead':'First-year master’s student, Graduate School of International Tourism Management, Toyo University. I study the <b>reception and re-transmission of Ainu cultural tourism by Chinese-speaking tourists</b>.',
- 'research.body':'Through national facilities such as Upopoy (opened 2020), Ainu culture is broadcast at home and abroad. Yet how overseas tourists receive it — and how they carry it back into their own linguistic spheres — has scarcely been examined empirically. Through analysis of Chinese-language user-generated content, this research describes how tourists and audiences in the Chinese-speaking world take in the experience and re-transmit it as word-of-mouth and social-media posts (e.g. on RED / Xiaohongshu) — what I call the “mediating role of the tourist.” Rather than judging the authenticity of the culture or the depth of understanding, it stays with description: who says what, how, and carries it where.',
+ 'research.lead':'Using simplified-Chinese web content about Ainu cultural tourism as a starting point, I look at how cultural information is encountered, understood, reorganized and expressed again across language-crossing digital platforms.','proj.st':'In development','night.pri.d':'A person makes the final judgment. Sources stay traceable. Unfinished work is not written up as results.','night.pri.t':'Working principles','build.status':'In Development','build.title':'A multi-AI collaboration experiment that keeps disagreement','rz.stat':'The work is at the stage of refining methods and reading through material; there are no conclusions yet.','rz.status':'Ongoing Research','rz.ptitle':'Cultural understanding and re-expression across language platforms',
  'research.kwlabel':'Keywords:','research.imgcap':'Reference works on Hokkaido heritage & the Ainu',
  'field.label':'FIELDWORK','field.h2':'From the field',
  'field.intro':'In July 2026 I did participant observation at Upopoy (the Symbolic Space for Ethnic Harmony), noting the exhibition and interpretation policy and visitors’ reactions in field notes. I have also walked Shiraoi, Hakodate and other places.',
@@ -684,29 +693,27 @@ en:{"rz.enter":"Open →","rz.core.lab":"CORE","rz.fw.h":"Fieldwork — Hokkaido
  'j.t7.n':'Shiraoi · Hakodate','j.t7.d':'',
  'j.now.t':'now','j.now.n':'into the Chinese-speaking web','j.now.d':'how what I saw on foot travels through a different culture',
  'build.label':'// vibecoding','build.h2':'what I’m building',
- 'hi.a.t':'AI as remembered participants, not tools','hi.a.d':'Each model gets a persistent seat, its own memory, and provenance. Who said what is kept — a design about memory architecture and ethics, not disposable AI.',
- 'hi.b.t':'One table — from small talk to scholarship','hi.b.d':'A roundtable that shifts register across contexts, from casual chat to academic review.',
- 'hi.c.t':'Aiming agent tooling at the humanities','hi.c.d':'Most agent tooling is built for engineering. This is an attempt to point that idea toward humanities and qualitative dialogue.',
- 'build.desc':'I’m building “AI Roundtable” — a multi-model collaboration system where several commercial LLMs each take a persistent “seat,” discuss a shared agenda, and cross-review one another’s output. Every seat keeps its own long-term memory (a seat’s identity outlives any single model version), and every contribution stays traceable to who said it. The guiding principle is transparency-first: you can always see what the system actually did, and why.<br><br>It’s also my research question — how meaning is received and re-transmitted between people — turned toward machines.',
- 'proj.1.t':'AI Roundtable','proj.1.d':'A collaboration engine where multiple models sit at one table, discuss, and cross-review.',
- 'proj.2.t':'Seat Memory & Provenance','proj.2.d':'A layer for per-seat persistent memory and speaker-anchored provenance.',
- 'proj.note':'▸ Still in beta — assembled piece by piece, transparency first.',
- 'research.imgcap2':'Field materials collected across Shiraoi, Hakodate & beyond','works.deckcap':'2nd progress presentation — a 36-slide deck','build.diagcap':'Concept: seats around a table, each with memory, reviewing one another','works.tecap':'The mini-lecture I ran as a teaching assistant',
- 'contact.label':'CONTACT','contact.h2':'Contact','contact.name.k':'Name','contact.aff.k':'Affiliation','contact.aff.v':'Graduate School of International Tourism Management, Toyo University','contact.mail.k':'Email','contact.wx.k':'WeChat','contact.wx.btn':'Show WeChat QR',
- 'night.mem.t':'Memory architecture — the design core','night.mem.d':'The core of this project is the memory design. Each seat’s private memory (Seat Memory) is kept separate from the meeting record (Round History); what surfaces in a meeting becomes long-term memory only through controlled promotion. A seat’s identity sits above any model version — swap the engine, the seat stays. And bringing your own brain into the room never means reading another seat’s private memory.',
- 'night.pos.t':'Positioning — why build it myself while big labs move in','night.pos.d':'As of 2026, multi-agent collaboration is a direction the major labs are pursuing too. The reason to keep building it myself lies in what this design lets me fully own — the memory architecture, transparency, and the provenance of who said what. Not competing on scale, but betting on control, transparency, and a humanities-facing purpose. A side benefit: I can directly observe each seat’s “personality,” and there are moments when a behavior turns out to be rooted in training data rather than in rules.','night.pos.stamp':'— positioning note, 2026','night.adhd':'Scattered, leaping, suddenly diving deep. It’s also designed for the way minds work these days.',
+ 'hi.a.t':'Each one judges first','hi.a.d':'Several AIs are not asked for one answer straight away. Each forms a relatively independent judgment first, then reads, questions and revises the others’.',
+ 'hi.b.t':'Differences stay on the record','hi.b.d':'Who said it, where opinions split, how they were revised. That process is kept, not compressed.',
+ 'hi.c.t':'People decide','hi.c.d':'Set the agenda. Draw the limits. Grant permission to act. Make the final call. These four stay human jobs.',
+ 'build.desc':'What I’m building is AI Roundtable: a collaboration experiment in which several AIs work on the same agenda while keeping their own judgments, then review one another. The aim is less to reach a single answer quickly than to keep the differences, their sources and the revisions visible. It is still in development and validation.',
+ 'proj.1.t':'AI Roundtable','proj.1.d':'A collaboration experiment in which several AIs sit at one table and review one another while keeping their own judgments.',
+ 'proj.2.t':'Human-led Collaboration','proj.2.d':'A pattern for keeping the agenda, the limits, the permissions and the final call on the human side.',
+ 'proj.note':'▸ In development and validation. What’s written here goes as far as direction and principles.',
+ 'research.imgcap2':'Field materials collected across Shiraoi, Hakodate & beyond','works.deckcap':'2nd progress presentation — a 36-slide deck','build.diagcap':'Concept: several AIs sit around a table with their own judgments and review one another. The agenda and the final call stay with the person.','works.tecap':'The mini-lecture I ran as a teaching assistant',
+ 'contact.label':'CONTACT','contact.h2':'Contact','contact.name.k':'Name','contact.aff.k':'Affiliation','contact.aff.v':'Graduate School of International Tourism Management, Toyo University','contact.mail.k':'Email','contact.wx.k':'WeChat','contact.wx.btn':'Show WeChat QR','night.adhd':'Scattered, leaping, suddenly diving deep. It’s also designed for the way minds work these days.',
  'footer.day':'© 2026 Sou Harumi — day: tourism studies / night: vibecoding.','footer.night':'© 2026 SOU HARUMI — day: tourism studies / night: vibecoding.',
- 'spine.h2':'What day and night share',
- 'spine.line.day':'Who told it <span class="neq">≠</span> whether it’s true',
- 'spine.line.night':'Who said it <span class="neq">≠</span> whether it’s evidence',
- 'spine.col.t':'Tourism — reception & re-transmission','spine.col.n':'Roundtable — seats & rooms',
- 'spine.r1.ax':'who speaks ≠ true','spine.r1.t':'Who narrates <b>Ainu culture</b> ≠ its truth','spine.r1.n':'Which <b>seat</b> speaks ≠ evidence',
- 'spine.r2.ax':'repetition ≠ true','spine.r2.t':'Widely shared, retold again and again ≠ true','spine.r2.n':'Recalled again and again ≠ true',
- 'spine.r3.ax':'the room shapes the telling','spine.r3.t':'The same culture is told differently in different <b>settings</b>','spine.r3.n':'The same seat behaves differently in different <b>rooms</b>',
- 'spine.r4.ax':'silence speaks','spine.r4.t':'What goes unsaid — silence — is itself a telling','spine.r4.n':'A seat may choose not to speak',
- 'spine.sub':'Research or building, what I care about is the same.'
+ 'spine.h2':'Two objects, two practices, one line of questions',
+ 'spine.line.day':'visibility → understanding → mediation → re-expression → responsibility',
+ 'spine.line.night':'visibility → understanding → mediation → re-expression → responsibility',
+ 'spine.col.t':'Research — cultural information','spine.col.n':'Roundtable — judgment and collaboration',
+ 'spine.r1.ax':'visibility','spine.r1.t':'What is seen first is shaped by the platform.','spine.r1.n':'Which judgment surfaces first is shaped by setup and order.',
+ 'spine.r2.ax':'understanding · mediation','spine.r2.t':'Audiences reread with the meaning resources they already have.','spine.r2.n':'Each AI judges independently, then reads the others.',
+ 'spine.r3.ax':'re-expression','spine.r3.t':'Restated information can drop its original context.','spine.r3.n':'Merge too early and the differences disappear.',
+ 'spine.r4.ax':'responsibility','spine.r4.t':'Keeping evidence and interpretation apart is the researcher’s job.','spine.r4.n':'Holding the agenda and the final call is the person’s job.',
+ 'spine.sub':'The research and the roundtable are different work. The questions they run into are the same.'
 },
-zh:{"rz.enter":"展开 →","rz.core.lab":"研究核心 · CORE","rz.fw.h":"现地调查 — 北海道","rz.view":"看图","rz.flow":"▶ 流动","rz.reading":"部分参考文献","rz.q1.k":"01 — 问题","rz.q1.t":"观光客的媒介作用","rz.q1.b":"中华圈观光客把阿伊努文化「<b>接收为什么</b>」，又「<b>如何带回自己的语言圈</b>」？这份接收与再传递，我称之为〈<b>观光客的媒介作用</b>〉。","rz.q2.k":"02 — 对象·田野","rz.q2.t":"ウポポイ与中文UGC","rz.q2.b":"以2020年开设的国立设施〈<b>ウポポイ</b>〉为起点，走白老、阿寒湖等田野，分析<b>中文UGC</b>（小红书等社交媒体与口碑）。","rz.q3.k":"03 — 方法","rz.q3.t":"只做描述","rz.q3.b":"分析中文UGC，辅以现地<b>参与观察</b>。不裁定真伪、不评判理解深浅，只专注描述：<b>谁、说了什么、怎么说、又运往何处</b>。","rz.q4.k":"04 — 立场","rz.q4.t":"从接收者一侧","rz.q4.b":"站在<b>接收者（中华圈）一侧</b>，追踪经验如何被接收，又如何作为口碑与社交<b>再发信</b>传出。",
+zh:{"rz.enter":"展开 →","rz.core.lab":"研究核心 · CORE","rz.fw.h":"现地调查 — 北海道","rz.view":"看图","rz.flow":"▶ 流动","rz.reading":"部分参考文献","rz.q1.k":"01 — 问题","rz.q1.t":"越过语言之后，发生了什么","rz.q1.b":"阿伊努文化观光的相关信息进入简体中文网络环境后，受众如何接触它、理解它、重新组织它，又如何再次表达？","rz.q2.k":"02 — 受众","rz.q2.t":"受众不是终点","rz.q2.b":"不把网络受众当作信息到达即结束的地方。人们会动用既有知识、旅行经验、流行文化等意义资源，对文化信息进行选择、解释和重新表述。","rz.q3.k":"03 — 平台","rz.q3.t":"什么先被看见","rz.q3.b":"数字平台左右着人们最先看到什么。跨越语言之后语境会变，能被看见的东西也随之变化。这套可见性机制，同样在研究视野之内。","rz.q4.k":"04 — 责任","rz.q4.t":"把证据和解释分开","rz.q4.b":"不裁定文化真伪、不评判理解深浅。记录谁、说了什么、怎么说，并把证据与解释分开呈现。我认为这是研究者一侧的责任。",
  'brand':'宋 春见<small>SOU HARUMI</small>',
  'toggle.day':'☀︎ 白天','toggle.night':'🌙 夜晚',
  'hero.day.kicker':'国际观光学 · 硕士',
@@ -718,8 +725,7 @@ zh:{"rz.enter":"展开 →","rz.core.lab":"研究核心 · CORE","rz.fw.h":"现�
  'hero.night.tag':'在研究之余，我和 AI 一起做各种各样的工具。最有意思的一个是 AI Roundtable。',
  'hint.night':'去白天的页面 ↗',
  'research.label':'研究','research.h2':'我在研究什么',
- 'research.lead':'东洋大学大学院 国际观光学研究科 硕士一年级。研究方向是阿伊努文化观光中，<b>中华圈观光客的接收与再发信</b>。',
- 'research.body':'通过2020年开设的国立设施ウポポイ（Upopoy）等，阿伊努文化正被向海内外传播。然而海外观光客究竟"把它接收为什么"、又"如何带回自己的语言圈"，实证研究几乎空白。本研究通过对中文UGC的分析，描述中华圈的观光客与受众如何接收这份经验，并作为口碑与社交媒体（如小红书）的发信再度传递——我称之为"观光客的媒介作用"。研究不裁定文化真伪、也不评判理解深浅，只专注于描述：谁、说了什么、怎么说、又运往何处。',
+ 'research.lead':'以阿伊努文化观光相关的简体中文网络内容为切入点，观察文化信息在跨语言的数字平台中如何被接触、理解、重新组织，并再次表达。','proj.st':'开发与验证中','night.pri.d':'人做最终判断。来源可以追溯。没做完的东西，不写成成果。','night.pri.t':'协作原则','build.status':'开发与验证中 · In Development','build.title':'保留差异的多 AI 协作实验','rz.stat':'目前仍在完善方法、阅读材料的阶段，还没有结论。','rz.status':'研究进行中 · Ongoing Research','rz.ptitle':'跨语言平台中的文化理解与再表达',
  'research.kwlabel':'关键词：','research.imgcap':'北海道遗产·阿伊努相关参考文献',
  'field.label':'田野','field.h2':'来自田野',
  'field.intro':'2026年7月，在ウポポイ（民族共生象征空间）做了参与观察，把展示与解说的方针、来场者的反应记入田野笔记；此外也走了白老、函馆等地。',
@@ -742,32 +748,28 @@ zh:{"rz.enter":"展开 →","rz.core.lab":"研究核心 · CORE","rz.fw.h":"现�
  'j.t7.n':'白老·函馆','j.t7.d':'',
  'j.now.t':'现在','j.now.n':'通向中华圈的社交网络','j.now.d':'走过时的所见，在不同的文化里如何流动',
  'build.label':'// vibecoding','build.h2':'我在做的东西',
- 'hi.a.t':'把 AI 当作“有记忆的参加者”，而非工具','hi.a.d':'给每个模型持久的席位、记忆与来源；留下“谁说了什么”，不把 AI 用完即弃——关于记忆架构与伦理的设计。',
- 'hi.b.t':'同一张圆桌，从闲聊到学术','hi.b.d':'能随场景切换讨论模式、自我适配的圆桌。',
- 'hi.c.t':'把偏工程的“智能体”，转向人文讨论','hi.c.d':'多数智能体技术面向开发；这是把那套思路转向人文与质性对话的一次尝试。',
- 'build.desc':'我在做的是「AI 圆桌（AI Roundtable）」——一个多模型协作系统：多个商用大模型各占一个持久的「席位（Seat）」，围绕同一议题讨论，并交叉评审彼此的输出。每个席位拥有独立的长期记忆（席位身份高于模型版本），每一句发言都可追溯到"谁说的"。设计的第一原则是"先透明"——系统究竟做了什么、为什么，随时都看得见。<br><br>这其实也是把我的研究关心（意义如何在人与人之间被接收、再传递）转向机器的一次实验。',
- 'proj.1.t':'AI 圆桌','proj.1.d':'多个模型围坐一桌、讨论并交叉评审的协作引擎。',
- 'proj.2.t':'Seat Memory & Provenance','proj.2.d':'为每个席位提供持久记忆、并锚定发言者来源的底层。',
- 'proj.note':'▸ 仍是 Beta，以透明优先，一点点搭起来。',
- 'research.imgcap2':'在白老·函馆等地收集的田野资料','works.deckcap':'第2次研究进展发表幻灯（共36页）','build.diagcap':'概念图：席位围坐一桌、各带记忆、互相评审','works.tecap':'我作为助教主讲的 mini-lecture 现场',
- 'contact.label':'联系','contact.h2':'联系方式','contact.name.k':'姓名','contact.aff.k':'所属','contact.aff.v':'东洋大学大学院 国际观光学研究科','contact.mail.k':'邮箱','contact.wx.k':'微信','contact.wx.btn':'点击显示微信二维码',
- 'night.mem.t':'记忆架构 — 设计的核心','night.mem.d':'这个项目的核心在记忆的设计：每个席位的私人记忆（Seat Memory）与会议记录（Round History）分层保存，会议里出现的内容要经过受控 promotion 才进入长期记忆。席位身份高于模型版本——换引擎，不换席位。而"带着自己的脑子进会议"，绝不等于"能读别的席位的私人记忆"。',
- 'night.pos.t':'立场 — 大厂也在动，为什么我仍自己做','night.pos.d':'截至 2026 年，多智能体协作也是大厂在走的方向。我仍自己做，是因为这套设计里我能完全掌控的东西——记忆架构、透明、"谁说了什么"的来源。不拼规模，赌控制、透明与人文目的。附带的好处是：能直接观察每个席位的"性格"，有时会发现某个行为其实源自训练数据，而非规则限制。','night.pos.stamp':'— 立场笔记, 2026','night.adhd':'发散、跳跃、突然深潜。这也是为当下人们这种用脑方式而做的设计。',
+ 'hi.a.t':'先各自判断','hi.a.d':'不让多个 AI 一上来就给出一个答案。先各自形成相对独立的判断，再阅读、质疑、修正彼此的意见。',
+ 'hi.b.t':'差异，留着不抹','hi.b.d':'谁说的、在哪里出现分歧、怎么修正的。这个过程不被压缩，原样留下。',
+ 'hi.c.t':'决定的是人','hi.c.d':'提出议题。划定边界。授予行动权限。做最终判断。这四件事留给人来做。',
+ 'build.desc':'正在做的是「AI 圆桌（AI Roundtable）」：多个 AI 围绕同一议题、各自保留判断地进行讨论，再互相评审的协作实验。想要的与其说是尽快得出一个统一答案，不如说是让意见的差异、它们的来源和修正的过程都保持可见。目前仍在开发与验证中。',
+ 'proj.1.t':'AI 圆桌','proj.1.d':'多个 AI 围坐一桌、各自保留判断并互相评审的协作实验。',
+ 'proj.2.t':'Human-led Collaboration','proj.2.d':'把议题、边界、行动权限和最终判断留在人这一侧的协作方式。',
+ 'proj.note':'▸ 开发与验证中。这里写到的，只到方向和原则为止。',
+ 'research.imgcap2':'在白老·函馆等地收集的田野资料','works.deckcap':'第2次研究进展发表幻灯（共36页）','build.diagcap':'概念图：多个 AI 各自带着判断围坐一桌、互相评审。议题与最终判断在人这一侧。','works.tecap':'我作为助教主讲的 mini-lecture 现场',
+ 'contact.label':'联系','contact.h2':'联系方式','contact.name.k':'姓名','contact.aff.k':'所属','contact.aff.v':'东洋大学大学院 国际观光学研究科','contact.mail.k':'邮箱','contact.wx.k':'微信','contact.wx.btn':'点击显示微信二维码','night.adhd':'发散、跳跃、突然深潜。这也是为当下人们这种用脑方式而做的设计。',
  'footer.day':'© 2026 宋 春见 · Sou Harumi — 白天做观光学，夜里写代码。','footer.night':'© 2026 SOU HARUMI — 白天做观光学，夜里 vibecoding。',
- 'spine.h2':'昼与夜共通的东西',
- 'spine.line.day':'谁在讲 <span class="neq">≠</span> 那就是真的',
- 'spine.line.night':'谁说的 <span class="neq">≠</span> 那就是证据',
- 'spine.col.t':'观光 — 接收与再发信','spine.col.n':'圆桌 — 席位与房间',
- 'spine.r1.ax':'谁说 ≠ 真','spine.r1.t':'谁在讲<b>阿伊努文化</b> ≠ 那就是真的','spine.r1.n':'哪个<b>席</b>说的 ≠ 那就是证据',
- 'spine.r2.ax':'反复 ≠ 真','spine.r2.t':'被反复转发、热度再高 ≠ 更真','spine.r2.n':'反复被想起 ≠ 更真',
- 'spine.r3.ax':'场决定讲法','spine.r3.t':'同一文化，<b>场</b>不同、讲法不同','spine.r3.n':'同一席位，<b>房间</b>不同、举止不同',
- 'spine.r4.ax':'沉默也是表达','spine.r4.t':'不说、沉默，也是一种讲述','spine.r4.n':'席位可以选择不说',
- 'spine.sub':'不管是研究还是开发，在意的是同一件事。'
+ 'spine.h2':'两个对象、两种实践，一条共同的问题主线',
+ 'spine.line.day':'可见性 → 理解 → 中介 → 再表达 → 责任',
+ 'spine.line.night':'可见性 → 理解 → 中介 → 再表达 → 责任',
+ 'spine.col.t':'研究 — 文化信息','spine.col.n':'圆桌 — 判断与协作',
+ 'spine.r1.ax':'可见性','spine.r1.t':'最先看到什么，由平台左右。','spine.r1.n':'最先出现哪个判断，由设置和顺序左右。',
+ 'spine.r2.ax':'理解・中介','spine.r2.t':'受众用手里已有的意义资源重新解读。','spine.r2.n':'每个 AI 先独立判断，再阅读彼此。',
+ 'spine.r3.ax':'再表达','spine.r3.t':'被重新表述的信息，可能丢掉原来的语境。','spine.r3.n':'过早合并，差异就消失了。',
+ 'spine.r4.ax':'责任','spine.r4.t':'把证据和解释分开呈现的，是研究者。','spine.r4.n':'掌握议题和最终判断的，是人。',
+ 'spine.sub':'研究和圆桌是两件不同的事。撞上的问题，却总是同一组。'
 }
 };
-const KW={ja:['アイヌ文化観光','コンテンツツーリズム','中華圏UGC分析','観光客の媒介作用','構築主義的真正性','批判的遺産研究'],
-en:['Ainu cultural tourism','Contents tourism','Chinese-language UGC analysis','The tourist as mediator','Constructivist authenticity','Critical heritage studies'],
-zh:['阿伊努文化观光','内容观光','中文UGC分析','观光客的媒介作用','建构主义真实性','批判性遗产研究']};
+const KW={ja:['異文化間コミュニケーション','アイヌ文化観光','簡体字中国語のネット・コンテンツ','プラットフォームの可視性','文化理解','再表現','デジタル媒介'],en:['cross-cultural communication','Ainu cultural tourism','simplified-Chinese web content','platform visibility','cultural understanding','re-expression','digital mediation'],zh:['跨文化传播','阿伊努文化观光','简体中文网络内容','平台可见性','文化理解','再表达','数字媒介']};
 let lang='ja';
 /* --- entry from cover: carry language, enter night on night-only anchors --- */
 (function initFromURL(){
@@ -827,7 +829,9 @@ apply();
     <div class="rz-kicker">RESEARCH</div>
     <h2 class="rz-hand" data-i18n="research.h2"></h2>
     <div class="rz-corelab" data-i18n="rz.core.lab"></div>
+    <div class="rz-ptitle" data-i18n="rz.ptitle"></div><div class="rz-psub">Ainu Cultural Tourism × Simplified-Chinese UGC</div><div><span class="rz-status" data-i18n="rz.status"></span></div>
     <p class="rz-coreq" data-i18n="research.lead"></p>
+    <p class="rz-stat" data-i18n="rz.stat"></p>
    </div>
   </div>
  </div>
