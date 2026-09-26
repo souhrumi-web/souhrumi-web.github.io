@@ -192,6 +192,34 @@ body.opening.go .hportrait,body.opening.go .sweep{animation-play-state:running}
 .veil.night{background:#0A0E1A}.veil.show{opacity:1;pointer-events:auto}
 .veil .vtxt{font-family:'Courier Prime',monospace;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.86);opacity:0;transition:opacity .4s ease .15s}
 .veil.night .vtxt{color:#6b78a8}.veil.show .vtxt{opacity:1}
+
+/* ===== v2: auto-reveal flourish + entry polish ===== */
+.autosweep{position:absolute;top:50%;left:-32%;width:60%;height:2px;margin-top:-1px;opacity:0;z-index:5;pointer-events:none;border-radius:2px;
+  background:linear-gradient(90deg,transparent,rgba(46,58,130,.5) 44%,rgba(30,95,158,.66) 60%,transparent);box-shadow:0 0 14px rgba(46,58,130,.22)}
+.autosweep.run{animation:autoSweepGo .64s cubic-bezier(.3,.42,.3,1) forwards}
+@keyframes autoSweepGo{0%{opacity:0;transform:translateX(0)}16%{opacity:.92}100%{opacity:0;transform:translateX(210%)}}
+body.mood-night .autosweep{background:linear-gradient(90deg,transparent,rgba(150,165,235,.5) 44%,rgba(174,187,240,.7) 60%,transparent)}
+/* entry polish: tiles behave like doors */
+.tile{transition:transform .42s cubic-bezier(.2,.7,.25,1),box-shadow .42s ease,border-color .42s ease,filter .42s ease}
+.tile::before{content:"\2197";position:absolute;right:10px;bottom:9px;z-index:3;font-family:'Courier Prime',monospace;font-size:13px;font-weight:700;color:#4a5aa8;opacity:0;transform:translate(3px,3px);transition:opacity .34s ease,transform .34s ease}
+.tile:hover,.tile:focus-visible{transform:translateY(-5px);border-color:var(--blue);box-shadow:0 16px 34px rgba(23,25,76,.30);filter:grayscale(0)}
+.tile:hover::before,.tile:focus-visible::before{opacity:.95;transform:none}
+.tile:hover span:not(.beta),.tile:focus-visible span:not(.beta){color:#fff}
+.tile:hover .beta{border-color:#aeb7e0;color:#e7ebfb}
+body.mood-night .tile:hover{box-shadow:0 16px 34px rgba(0,0,0,.42)}
+body.mood-night .tile::before{color:#aeb7e0}
+/* entry polish: nav underline slide */
+.navmid a:not(.star){position:relative}
+.navmid a:not(.star)::after{content:"";position:absolute;left:0;right:100%;bottom:-4px;height:1.5px;background:var(--blue);transition:right .32s cubic-bezier(.4,0,.2,1)}
+.navmid a:not(.star):hover::after{right:0}
+.navmid .star{transition:color .3s ease,text-shadow .3s ease}
+.navmid .star:hover{text-shadow:0 0 14px rgba(46,58,130,.4)}
+body.mood-night .navmid a:not(.star)::after{background:#aebbf0}
+@media(prefers-reduced-motion:reduce){.tile{transition:none}.autosweep{display:none}}
+
+/* v2b: vintage-newspaper initial on the bio */
+.bio .dc{display:inline-block;font-family:'Rozha One','Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',Georgia,serif;font-weight:700;font-size:2.4em;line-height:.8;vertical-align:-.16em;margin-right:.05em;color:var(--navy);transition:color .8s ease}
+body.mood-night .bio .dc{color:#c3cbe8}
 </style>
 </head>
 <body class="ld opening">
@@ -223,6 +251,7 @@ body.opening.go .hportrait,body.opening.go .sweep{animation-play-state:running}
     <div class="wmname" aria-hidden="true"><span class="wl">SOU</span><span class="wl">HARUMI</span></div>
     <div class="sweep" aria-hidden="true"></div>
   </div>
+  <span class="autosweep" id="autosweep"></span>
   <div class="scrollcue"><span class="cue-arrow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></span><span data-i="scroll">Scroll</span></div>
 </header>
 
@@ -276,43 +305,43 @@ body.opening.go .hportrait,body.opening.go .sweep{animation-play-state:running}
 <div class="trans" id="trans"><span class="disc-wrap"><svg class="disc" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="41" fill="#0a0e1a"/><path d="M50 9 A41 41 0 0 1 50 91 Z" fill="#eef1f8"/><circle cx="50" cy="50" r="41" fill="none" stroke="#7982ac" stroke-width="2.5"/></svg></span><span class="solid"></span></div>
 
 <script>
-var SITE='site.html';
+var SITE='site.html';var SITE_V='2';
 var T={
  ja:{nRes:'Research',nBuild:'Build',nWork:'Work',nContact:'★ お問い合わせ ★',eyebrow:'国際観光学 × AI ・ 東京',scroll:'Scroll',
-  bio1:'宋 春見（ソウ・ハルミ）は、国際観光学の大学院生であり、AI プロダクトのつくり手。昼はアイヌ文化観光が中華圏の旅行者にどう受け取られ、語り直されるかを研究し、夜は AI Roundtable を設計してつくる。',
-  bio2:'放送・番組制作の出身。理解する → 企画する → つくる → 直す——同じループをずっと。東京より。見にきてくれてありがとう。',
+  bio1:'<span class="dc">今</span>、東洋大学大学院 国際観光学研究科の修士課程にいます。研究テーマは、アイヌ文化観光が中華圏の旅行者にどう受け取られ、どう語り直されるか。夜は AI Roundtable というツールを作っています。',
+  bio2:'学部では放送・広告・テレビ番組の制作を学び、母国でコンテスト・インターンシップ経験あり。東京在住。',
   sig:'東洋大学大学院 国際観光学 · JLPT N1 · 全国「インターネット＋」銀賞',
-  etag:'本気のわたし / THE DIFFERENT SIDES OF ME',meet:'本気のわたしにも、会っていく？',edesc:'昼は研究、夜はつくる。同じ人、ちがう部屋。どちらかを選んで入る。',
+  etag:'昼と夜の私 / DAY &amp; NIGHT',meet:'研究の話と、作っているものの話。どちらから？',edesc:'昼は研究、夜は開発。選んで、その詳細をご覧ください。',
   eDay:'DAY · RESEARCH',eDayN:'アイヌ文化観光',eNight:'NIGHT · BUILD',eNightN:'AI Roundtable',
   chooserHint:'昼か夜、えらんで入る →',enterDay:'昼へ…',enterNight:'夜へ…',
-  workH:'— Selected Work —',t1:'AI Roundtable',t2:'企業PV / 導纳能',t3:'互联网+ 銀賞',t4:'Ainu Research',cLabel:'— Contact · 連絡先 —',cv:'履歴書 / CV (PDF) →'},
+  workH:'— Selected Work —',t1:'AI Roundtable',t2:'ポスター / 展示会資料',t3:'互联网+ 銀賞',t4:'Ainu Research',cLabel:'— Contact · 連絡先 —',cv:'履歴書 / CV (PDF) →'},
  en:{nRes:'Research',nBuild:'Build',nWork:'Work',nContact:'★ CONTACT ★',eyebrow:'Tourism × AI · Tokyo',scroll:'Scroll',
-  bio1:'Harumi Song (宋春見) is a graduate researcher in international tourism and a builder of AI tools. By day she studies how Ainu cultural tourism is received and retold by Chinese-speaking travelers; by night she designs and builds AI Roundtable.',
-  bio2:'She comes from broadcast & program production. Understand → plan → build → refine — the same loop, for years. Based in Tokyo. Thanks for exploring.',
+  bio1:'<span class="dc">N</span>ow in the master’s program at the Graduate School of International Tourism Management, Toyo University. My research asks how Ainu cultural tourism is received and retold by Chinese-speaking travelers. At night I build a tool called AI Roundtable.',
+  bio2:'As an undergraduate I studied broadcasting, advertising and TV production, with contest and internship experience back home. Based in Tokyo.',
   sig:'MA, International Tourism (Toyo Univ.) · JLPT N1 · National "Internet+" Silver Award',
-  etag:'THE DIFFERENT SIDES OF ME',meet:'Care to see the other side?',edesc:'Research by day, building by night. Same person, different room. Pick one and step in.',
+  etag:'DAY &amp; NIGHT',meet:'Research on one side, things I’m building on the other. Which first?',edesc:'Day is research, night is building. Pick one to see the details.',
   eDay:'DAY · RESEARCH',eDayN:'Ainu cultural tourism',eNight:'NIGHT · BUILD',eNightN:'AI Roundtable',
   chooserHint:'pick a side, step in →',enterDay:'to day…',enterNight:'to night…',
-  workH:'— Selected Work —',t1:'AI Roundtable',t2:'Corporate PV',t3:'Internet+ Silver',t4:'Ainu Research',cLabel:'— Contact —',cv:'Résumé / CV (PDF) →'},
+  workH:'— Selected Work —',t1:'AI Roundtable',t2:'Posters / exhibition materials',t3:'Internet+ Silver',t4:'Ainu Research',cLabel:'— Contact —',cv:'Résumé / CV (PDF) →'},
  zh:{nRes:'研究',nBuild:'构建',nWork:'作品',nContact:'★ 联系我 ★',eyebrow:'国际观光学 × AI ・ 东京',scroll:'向下',
-  bio1:'宋春见是一名国际观光学的研究生，也是一个 AI 产品的搭建者。白天她研究阿伊努文化观光如何被中华圈旅行者接收与再叙述，夜里她设计并搭建 AI Roundtable。',
-  bio2:'传媒 · 广播电视编导出身。理解 → 企划 → 做出来 → 再调整——同一套循环，做了很多年。现居东京。谢谢你来看。',
+  bio1:'<span class="dc">现</span>在，我在东洋大学大学院 国际观光学研究科读硕士。研究主题是：阿伊努文化观光如何被中华圈旅行者接收、又如何被重新讲述。夜里在做一个叫 AI Roundtable 的工具。',
+  bio2:'本科学的是广播、广告与电视节目制作，在国内有竞赛和实习经历。现居东京。',
   sig:'东洋大学大学院 国际观光学 · JLPT N1 · 全国「互联网＋」银奖',
-  etag:'另一面的我 / THE DIFFERENT SIDES OF ME',meet:'也来见见另一面的我？',edesc:'白天做研究，夜里搭东西。同一个人，不同的房间。选一边，走进去。',
+  etag:'昼夜的我 / DAY &amp; NIGHT',meet:'研究的事，和正在做的东西。先看哪个？',edesc:'白天做研究，夜里做开发。选一边，看详细。',
   eDay:'白天 · 研究',eDayN:'阿伊努文化观光',eNight:'夜晚 · 构建',eNightN:'AI Roundtable',
   chooserHint:'选一边，走进去 →',enterDay:'走进白天…',enterNight:'走进夜晚…',
-  workH:'— 精选作品 —',t1:'AI 圆桌',t2:'企业宣传片',t3:'互联网+ 银奖',t4:'阿伊努研究',cLabel:'— 联系方式 —',cv:'履历 / CV (PDF) →'}
+  workH:'— 精选作品 —',t1:'AI 圆桌',t2:'海报 / 展会材料',t3:'互联网+ 银奖',t4:'阿伊努研究',cLabel:'— 联系方式 —',cv:'履历 / CV (PDF) →'}
 };
 var curLang='ja';
 function applyLangToLinks(){
   document.querySelectorAll('a.jump').forEach(function(a){
     var raw=a.getAttribute('href')||''; if(raw.indexOf('site.html')!==0) return;
     var hash=''; var hi=raw.indexOf('#'); var base=raw; if(hi>=0){hash=raw.slice(hi);base=raw.slice(0,hi);}
-    var path=base.split('?')[0]; a.setAttribute('href',path+'?lang='+curLang+hash);
+    var path=base.split('?')[0]; a.setAttribute('href',path+'?lang='+curLang+'&v='+SITE_V+hash);
   });
 }
 function setLang(l){curLang=l;document.documentElement.lang=l;
-  document.querySelectorAll('[data-i]').forEach(function(e){var v=T[l][e.dataset.i];if(v!=null)e.textContent=v;});
+  document.querySelectorAll('[data-i]').forEach(function(e){var v=T[l][e.dataset.i];if(v!=null)e.innerHTML=v;});
   document.querySelectorAll('.lang button').forEach(function(b){b.classList.toggle('on',b.dataset.l===l);});
   applyLangToLinks();}
 document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.l);});});
@@ -342,7 +371,7 @@ function enter(side){
   setMood(side); var isN=side==='night';
   sw.classList.add('loading', isN?'load-night':'load-day');
   trans.className='trans '+(isN?'night':'day');
-  var target=SITE+'?lang='+curLang+(isN?'&p=night':'');
+  var target=SITE+'?lang='+curLang+'&v='+SITE_V+(isN?'&p=night':'');
   setTimeout(function(){trans.classList.add('show');},1250);      // popspin 1.2s
   setTimeout(function(){trans.classList.add('commit');},2500);    // dial locks -> solid circle
   setTimeout(function(){trans.classList.add('blow');},2800);      // circle floods the screen
@@ -431,5 +460,41 @@ setLang('ja');
   }
 })();
 </script>
+<script>
+/* v2 auto-reveal: hold hero ~5s, flourish, smooth-reveal content; scroll-up still returns to hero */
+(function(){
+  var hero=document.getElementById('top'), wrap=document.querySelector('.wrap');
+  if(!hero||!wrap) return;
+  var reduce=false; try{reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;}catch(e){}
+  if(reduce) return;
+  if(window.scrollY>40) return;
+  var fired=false, canceled=false;
+  function stop(){window.removeEventListener('wheel',onU);window.removeEventListener('touchstart',onU);window.removeEventListener('touchmove',onU);window.removeEventListener('mousedown',onU);window.removeEventListener('keydown',onK);}
+  function onU(){ if(!fired){canceled=true;stop();} }
+  function onK(e){ var k=e.key; if(!fired && (k==='ArrowDown'||k==='ArrowUp'||k==='PageDown'||k==='PageUp'||k===' '||k==='Spacebar'||k==='Home'||k==='End')){canceled=true;stop();} }
+  window.addEventListener('wheel',onU,{passive:true});
+  window.addEventListener('touchstart',onU,{passive:true});
+  window.addEventListener('touchmove',onU,{passive:true});
+  window.addEventListener('mousedown',onU,{passive:true});
+  window.addEventListener('keydown',onK);
+  function reveal(){
+    if(fired||canceled) return;
+    if(window.scrollY>40){stop();return;}
+    fired=true; stop();
+    var fx=document.getElementById('autosweep');
+    if(fx){ fx.classList.remove('run'); void fx.offsetWidth; fx.classList.add('run'); }
+    var cue=document.querySelector('.scrollcue');
+    if(cue){ cue.style.transition='opacity .5s ease'; cue.style.opacity='0'; }
+    setTimeout(function(){
+      var y=wrap.getBoundingClientRect().top+window.scrollY-6;
+      if(y<10) return;
+      try{ window.scrollTo({top:y,behavior:'smooth'}); }catch(e){ window.scrollTo(0,y); }
+      setTimeout(function(){ if(cue) cue.style.opacity=''; }, 1700);
+    }, 300);
+  }
+  setTimeout(reveal, 5000);
+})();
+</script>
+
 </body>
 </html>
