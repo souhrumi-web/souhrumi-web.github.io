@@ -459,6 +459,7 @@ setLang('ja');
 
   var seen=false; try{seen=sessionStorage.getItem('introSeen')==='1';}catch(e){}
   if(window.__PREVIEW) seen=false;
+  if(/(^|[?&])replay(=|&|$)/.test(location.search)) seen=false;   /* /?replay = watch the opening again */
   if(seen){ body.classList.remove('opening','go'); return; }
   try{sessionStorage.setItem('introSeen','1');}catch(e){}
   /* body loads with .opening (intro state, paused); start once the display font is ready */
